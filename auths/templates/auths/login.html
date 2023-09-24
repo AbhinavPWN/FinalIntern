@@ -1,0 +1,116 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                    class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form method='post'>
+                    {% csrf_token %}
+                    <div class="text-center mb-4">
+                        <h1 class="h3 mb-3 fw-normal">Sign In</h1>
+                        {% comment %} <p class="lead fw-normal">Sign In With:</p> {% endcomment %}
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                            <i class="fab fa-linkedin-in"></i>
+                        </button>
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="{{ form.email.id_for_label }}"
+                            class="form-control form-control-lg"
+                            placeholder="Enter your email address"
+                            name="{{ form.email.name }}"
+                            value="{{ form.email.value }}"
+                            {% if form.email.required %}required{% endif %}>
+                        <label class="form-label" for="{{ form.email.id_for_label }}">Email address</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <input type="password" id="{{ form.password.id_for_label }}"
+                            class="form-control form-control-lg"
+                            placeholder="Enter your password"
+                            name="{{ form.password.name }}"
+                            {% if form.password.required %}required{% endif %}>
+                        <label class="form-label" for="{{ form.password.id_for_label }}">Password</label>
+                    </div>
+
+
+                    {% comment %} <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="{{ form.email.id_for_label }}">Email address</label>
+                        {{ form.email }}
+
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="{{ form.password.id_for_label }}">Password</label>
+                        {{ form.password }}
+
+                    </div> {% endcomment %}
+
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                            <label class="form-check-label" for="form2Example3">
+                                Remember me
+                            </label>
+                        </div>
+                        <a href="#!" class="text-primary">Forgot password?</a>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                                class="link-primary">Register</a></p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    {% comment %} <div
+        class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+        <div class="text-white mb-3 mb-md-0">
+            © 2023 Your Website. All rights reserved.
+        </div>
+
+        <div>
+            <a href="#!" class="text-white me-4">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#!" class="text-white me-4">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#!" class="text-white me-4">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="#!" class="text-white">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div> {% endcomment %}
+</section>
+
+{% endblock %}
