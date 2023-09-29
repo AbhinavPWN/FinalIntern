@@ -4,6 +4,7 @@ const CHANNEL = sessionStorage.getItem('room')
 let UID = sessionStorage.getItem('UID')
 
 let NAME = sessionStorage.getItem('name')
+let USERNAME = "{{ username }}";
 
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
 
@@ -31,7 +32,7 @@ let joinAndDisplayLocalStream = async () => {
 
     let player = `<div  class="video-container" id="user-container-${UID}">
                      <div class="video-player" id="user-${UID}"></div>
-                     <div class="username-wrapper"><span class="user-name">${member.name}</span></div>
+                     <div class="username-wrapper"><span class="user-name">${USERNAME}</span></div> 
                   </div>`
     
     document.getElementById('video-streams').insertAdjacentHTML('beforeend', player)
@@ -141,3 +142,6 @@ joinAndDisplayLocalStream()
 document.getElementById('leave-btn').addEventListener('click', leaveAndRemoveLocalStream)
 document.getElementById('camera-btn').addEventListener('click', toggleCamera)
 document.getElementById('mic-btn').addEventListener('click', toggleMic)
+
+
+// ${member.name}

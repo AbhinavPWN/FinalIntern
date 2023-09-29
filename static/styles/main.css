@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
 
 
+
 :root {
     --shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
   }
@@ -159,7 +160,7 @@ body{
     box-shadow: var(--shadow);
     background-color: #fff;
     cursor: pointer;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 5px;
 
 }
@@ -167,3 +168,14 @@ body{
 #leave-btn{
     background-color: rgb(255, 80, 80, 1);
 }
+
+/* Reset box-sizing for ::after and ::before pseudo-elements */
+::after, ::before {
+    box-sizing: content-box; /* Reset to default value */
+}
+
+
+
+
+
+

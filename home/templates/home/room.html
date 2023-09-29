@@ -2,6 +2,11 @@
 {% load static %}
 {% block content %}
 
+<script>
+    // Pass the username to the JavaScript code in stream.js
+    let USERNAME = "{{ username }}";
+</script>
+
 <main>
     <section id="room-name-wrapper">
         <p>Room Name: <span id="room-name"></span></p>

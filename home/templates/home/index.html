@@ -23,17 +23,24 @@
                     </label>
                 </div>
 
-                <div class="form-field">
+                {% comment %} <div class="form-field">
                     <label>Name:</label>
                     <label>
                         <input name="name" placeholder="Enter your name..."  style="text-transform:uppercase"/>
                     </label>
-                </div>
+                </div> {% endcomment %}
 
                 <div class="form-field">
                     <input type="submit" value="Join Stream" />
                 </div>
             </div>
+        </form>
+    </section>
+    <section>
+        <!-- Add a logout button -->
+        <form method="post" action="{% url 'auths:logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
         </form>
     </section>
 </main>

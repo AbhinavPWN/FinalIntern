@@ -9,6 +9,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import Group
 from django.contrib.auth import authenticate,login
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from auths.models import User
 
 
 
@@ -67,6 +69,13 @@ def deleteMember(request):
     member.delete()
     return JsonResponse('Member deleted', safe=False)
 
-
+@login_required
 def index(request):
-    return render(request, 'home/index.html')
+    # Get the logged-in user.
+    user = request.user
+
+    # Get the username from the User data.
+    username = user.username
+    
+    # Return the rendered template.
+    return render(request, 'home/index.html',{'username':username})
